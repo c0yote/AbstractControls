@@ -1,0 +1,38 @@
+#include <iostream>
+
+#include <SDL.h>
+
+#include "sdljoystick.hpp"
+
+using namespace AbstractControls;
+using namespace AbstractControls::SDL;
+
+int main(int argc, char *argv[]) {
+  
+  SDL_Init(SDL_INIT_JOYSTICK | SDL_INIT_GAMECONTROLLER);
+  
+  std::shared_ptr<Joystick> js(new SDLJoystick(0));
+  
+  while(true) {
+    if (js->getAxisPosition(0) > 20000 or js->getAxisPosition(0) < -20000)
+      std::cout << "Axis 0 Report" << std::endl;
+    if (js->getAxisPosition(1) > 20000 or js->getAxisPosition(1) < -20000)
+      std::cout << "Axis 1 Report" << std::endl;
+    if (js->getAxisPosition(2) > 20000 or js->getAxisPosition(2) < -20000)
+      std::cout << "Axis 2 Report" << std::endl;
+    if (js->getAxisPosition(3) > 20000 or js->getAxisPosition(3) < -20000)
+      std::cout << "Axis 3 Report" << std::endl;
+    if (js->getAxisPosition(4) > 20000 or js->getAxisPosition(4) < -20000)
+      std::cout << "Axis 4 Report" << std::endl;
+    
+    for(auto b : js->getButtons()) {
+      if (b->isPressed())
+        std::cout << "Button Pressed" << std::endl;
+    }
+    
+    if(js->getHatPosition(0) != Hat::Position::AC_HAT_CENTER)
+      std::cout << "Hat Reporting: " << js->getHatPosition(0) << std::endl;
+  }
+  
+	SDL_Quit();
+}
