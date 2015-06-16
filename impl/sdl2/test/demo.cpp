@@ -14,16 +14,14 @@ int main(int argc, char *argv[]) {
   std::shared_ptr<Joystick> js(new SDL2Joystick(0));
   
   while(true) {
-    if (js->getAxisPosition(0) > 20000 or js->getAxisPosition(0) < -20000)
+    if (js->getAxisPosition(0) > 0.7 or js->getAxisPosition(0) < -0.7)
       std::cout << "Axis 0 Report" << std::endl;
-    if (js->getAxisPosition(1) > 20000 or js->getAxisPosition(1) < -20000)
+    if (js->getAxisPosition(1) > 0.7 or js->getAxisPosition(1) < -0.7)
       std::cout << "Axis 1 Report" << std::endl;
-    if (js->getAxisPosition(2) > 20000 or js->getAxisPosition(2) < -20000)
+    if (js->getAxisPosition(2) > 0.7 or js->getAxisPosition(2) < -0.7)
       std::cout << "Axis 2 Report" << std::endl;
-    if (js->getAxisPosition(3) > 20000 or js->getAxisPosition(3) < -20000)
+    if (js->getAxisPosition(3) > 0.7 or js->getAxisPosition(3) < -0.7)
       std::cout << "Axis 3 Report" << std::endl;
-    //if (js->getAxisPosition(4) > 20000 or js->getAxisPosition(4) < -20000)
-      //std::cout << "Axis 4 Report" << std::endl;
     
     for(auto b : js->getButtons()) {
       if (b->isPressed())

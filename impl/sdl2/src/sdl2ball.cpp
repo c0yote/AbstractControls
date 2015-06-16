@@ -12,7 +12,7 @@ SDL2Ball::SDL2Ball(SDL_Joystick* pJoystick, const uint32_t pBallIndex) {
 
 SDL2Ball::~SDL2Ball() {}
 
-Vector SDL2Ball:: getChange() {
+Vector SDL2Ball::getChange() {
   int32_t lX, lY;
   
   SDL_JoystickUpdate();  

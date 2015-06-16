@@ -18,7 +18,7 @@ public:
   int32_t getButtonCount()  const;
   int32_t getHatCount()     const;
   
-  int16_t       getAxisPosition(uint32_t index) const;
+  float         getAxisPosition(uint32_t index) const;
   Vector        getBallChange(uint32_t index)   const;
   Hat::Position getHatPosition(uint32_t index)  const;
   bool          isButtonPressed(uint32_t index) const;

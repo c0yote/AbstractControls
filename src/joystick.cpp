@@ -2,7 +2,7 @@
 
 namespace AbstractControls {
   
-int16_t Joystick::getAxisPosition(uint32_t index) const {
+float Joystick::getAxisPosition(uint32_t index) const {
   return mAxes.at(index)->getPosition();
 }
 

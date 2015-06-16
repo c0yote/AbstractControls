@@ -12,11 +12,13 @@ SDL2Axis::SDL2Axis(SDL_Joystick* pJoystick, const uint32_t pAxisIndex) {
 
 SDL2Axis::~SDL2Axis() {}
 
-int16_t SDL2Axis::getPosition() {
+float SDL2Axis::getPosition() {
   SDL_JoystickUpdate();
   int16_t lValue = SDL_JoystickGetAxis(mJoystick, mAxisIndex);
   
-  return lValue;
+  float lRatio = static_cast<float>(lValue) / 32767;
+  
+  return lRatio;
 }
 
 }}

@@ -7,7 +7,7 @@ namespace AbstractControls {
 
 class Axis {
 public:
-  virtual int16_t getPosition() = 0;
+  virtual float getPosition() = 0;
 };
 
 }
