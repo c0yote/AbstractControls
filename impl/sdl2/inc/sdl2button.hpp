@@ -11,7 +11,7 @@ namespace SDL2 {
 class SDL2Button : public Button {
 public:
   SDL2Button(SDL_Joystick* joystick, const uint32_t buttonIndex);
-  ~SDL2Button();
+  virtual ~SDL2Button();
   bool isPressed();
   
 private:

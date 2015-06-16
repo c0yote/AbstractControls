@@ -3,6 +3,8 @@
 
 #include <cstdint>
 
+#include "joystick.hpp"
+
 namespace AbstractControls {
 
 class ControlManager {
@@ -12,6 +14,10 @@ public:
 
   ControlManager(Backend backend);
   ~ControlManager();
+  
+  uint32_t getJoystickCount();
+  
+  std::shared_ptr<Joystick> getJoystick(uint32_t index);
 
 private:
 };

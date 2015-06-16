@@ -11,7 +11,7 @@ namespace SDL2 {
 class SDL2Hat : public Hat {
 public:
   SDL2Hat(SDL_Joystick* joystick, const uint32_t hatIndex);
-  ~SDL2Hat();
+  virtual ~SDL2Hat();
   Hat::Position getPosition();
   
 private:

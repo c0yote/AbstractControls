@@ -22,8 +22,8 @@ int main(int argc, char *argv[]) {
       std::cout << "Axis 2 Report" << std::endl;
     if (js->getAxisPosition(3) > 20000 or js->getAxisPosition(3) < -20000)
       std::cout << "Axis 3 Report" << std::endl;
-    if (js->getAxisPosition(4) > 20000 or js->getAxisPosition(4) < -20000)
-      std::cout << "Axis 4 Report" << std::endl;
+    //if (js->getAxisPosition(4) > 20000 or js->getAxisPosition(4) < -20000)
+      //std::cout << "Axis 4 Report" << std::endl;
     
     for(auto b : js->getButtons()) {
       if (b->isPressed())

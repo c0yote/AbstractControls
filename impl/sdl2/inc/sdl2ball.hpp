@@ -11,7 +11,7 @@ namespace SDL2 {
 class SDL2Ball : public Ball {
 public:
   SDL2Ball(SDL_Joystick* joystick, const uint32_t ballIndex);
-  ~SDL2Ball();
+  virtual ~SDL2Ball();
   Vector getChange();
   
 private:

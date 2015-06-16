@@ -11,9 +11,10 @@ namespace SDL2 {
 class SDL2Joystick : public Joystick {
 public:
   SDL2Joystick(const uint16_t deviceIndex);
-  ~SDL2Joystick();
+  virtual ~SDL2Joystick();
   
 private:
+  bool mSelfHandlingSDL = false;
   uint16_t mDeviceIndex;
   SDL_Joystick* mJoystick = nullptr;
 };

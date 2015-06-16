@@ -12,6 +12,14 @@ namespace AbstractControls {
 namespace SDL2 {
 
 SDL2Joystick::SDL2Joystick(const uint16_t pDeviceIndex) {
+  
+  // Check if the joystick module was not initialized.
+  if(!(SDL_WasInit(SDL_INIT_EVERYTHING) && SDL_INIT_JOYSTICK)) {
+    // Handle initialization yourself then.
+    mSelfHandlingSDL = true;
+    SDL_Init(SDL_INIT_JOYSTICK);
+  }
+  
   mDeviceIndex = pDeviceIndex;
   
   // Open the joystick.
@@ -57,6 +65,10 @@ SDL2Joystick::SDL2Joystick(const uint16_t pDeviceIndex) {
 
 SDL2Joystick::~SDL2Joystick() {
   SDL_JoystickClose(mJoystick);
+  
+  if(mSelfHandlingSDL) {
+    SDL_Quit();
+  }
 }
 
 
