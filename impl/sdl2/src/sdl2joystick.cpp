@@ -1,17 +1,17 @@
-#include "sdljoystick.hpp"
+#include "sdl2joystick.hpp"
 
 #include <memory>
 #include <stdexcept>
 
-#include "sdlaxis.hpp"
-#include "sdlball.hpp"
-#include "sdlbutton.hpp"
-#include "sdlhat.hpp"
+#include "sdl2axis.hpp"
+#include "sdl2ball.hpp"
+#include "sdl2button.hpp"
+#include "sdl2hat.hpp"
 
 namespace AbstractControls {
-namespace SDL {
+namespace SDL2 {
 
-SDLJoystick::SDLJoystick(const uint16_t pDeviceIndex) {
+SDL2Joystick::SDL2Joystick(const uint16_t pDeviceIndex) {
   mDeviceIndex = pDeviceIndex;
   
   // Open the joystick.
@@ -22,7 +22,7 @@ SDLJoystick::SDLJoystick(const uint16_t pDeviceIndex) {
   mAxisCount = SDL_JoystickNumAxes(mJoystick);
   if(mAxisCount >= 0) {
     for (uint32_t i = 0; i < mAxisCount; i++) {
-      mAxes.push_back(std::shared_ptr<Axis>(new SDLAxis(mJoystick, i)));
+      mAxes.push_back(std::shared_ptr<Axis>(new SDL2Axis(mJoystick, i)));
     }
   }
   else { throw std::runtime_error(SDL_GetError()); }
@@ -31,7 +31,7 @@ SDLJoystick::SDLJoystick(const uint16_t pDeviceIndex) {
   mBallCount = SDL_JoystickNumBalls(mJoystick);
   if(mBallCount >= 0) {
     for (uint32_t i = 0; i < mBallCount; i++) {
-      mBalls.push_back(std::shared_ptr<Ball>(new SDLBall(mJoystick, i)));
+      mBalls.push_back(std::shared_ptr<Ball>(new SDL2Ball(mJoystick, i)));
     }
   }
   else { throw std::runtime_error(SDL_GetError()); }
@@ -40,7 +40,7 @@ SDLJoystick::SDLJoystick(const uint16_t pDeviceIndex) {
   mButtonCount = SDL_JoystickNumButtons(mJoystick);
   if(mButtonCount >= 0) {
     for (uint32_t i = 0; i < mButtonCount; i++) {
-      mButtons.push_back(std::shared_ptr<Button>(new SDLButton(mJoystick, i)));
+      mButtons.push_back(std::shared_ptr<Button>(new SDL2Button(mJoystick, i)));
     }
   }
   else { throw std::runtime_error(SDL_GetError()); }
@@ -49,13 +49,13 @@ SDLJoystick::SDLJoystick(const uint16_t pDeviceIndex) {
   mHatCount = SDL_JoystickNumHats(mJoystick);
   if(mHatCount >= 0) {
     for (uint32_t i = 0; i < mHatCount; i++) {
-      mHats.push_back(std::shared_ptr<Hat>(new SDLHat(mJoystick, i)));
+      mHats.push_back(std::shared_ptr<Hat>(new SDL2Hat(mJoystick, i)));
     }
   }
   else { throw std::runtime_error(SDL_GetError()); }
 }
 
-SDLJoystick::~SDLJoystick() {
+SDL2Joystick::~SDL2Joystick() {
   SDL_JoystickClose(mJoystick);
 }
 

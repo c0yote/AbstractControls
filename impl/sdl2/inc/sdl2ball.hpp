@@ -1,17 +1,17 @@
-#ifndef SDLBALL_HPP_
-#define SDLBALL_HPP_
+#ifndef SDL2BALL_HPP_
+#define SDL2BALL_HPP_
 
 #include <SDL.h>
 
 #include <ball.hpp>
 
 namespace AbstractControls {
-namespace SDL {
+namespace SDL2 {
 
-class SDLBall : public Ball {
+class SDL2Ball : public Ball {
 public:
-  SDLBall(SDL_Joystick* joystick, const uint32_t ballIndex);
-  ~SDLBall();
+  SDL2Ball(SDL_Joystick* joystick, const uint32_t ballIndex);
+  ~SDL2Ball();
   Vector getChange();
   
 private:

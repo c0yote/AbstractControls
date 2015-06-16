@@ -1,6 +1,6 @@
 add_library(SDLControls
-            sdlaxis.cpp
-            sdlball.cpp
-            sdlbutton.cpp
-            sdlhat.cpp
-            sdljoystick.cpp)
+            sdl2axis.cpp
+            sdl2ball.cpp
+            sdl2button.cpp
+            sdl2hat.cpp
+            sdl2joystick.cpp)

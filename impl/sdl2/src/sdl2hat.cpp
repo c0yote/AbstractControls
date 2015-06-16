@@ -1,16 +1,16 @@
-#include "sdlhat.hpp"
+#include "sdl2hat.hpp"
 
 namespace AbstractControls {
-namespace SDL {
+namespace SDL2 {
 
-SDLHat::SDLHat(SDL_Joystick* pJoystick, const uint32_t pHatIndex) {
+SDL2Hat::SDL2Hat(SDL_Joystick* pJoystick, const uint32_t pHatIndex) {
   mJoystick = pJoystick;
   mHatIndex = pHatIndex;
 }
 
-SDLHat::~SDLHat() {}
+SDL2Hat::~SDL2Hat() {}
 
-Hat::Position SDLHat::getPosition() {
+Hat::Position SDL2Hat::getPosition() {
   SDL_JoystickUpdate();
   uint16_t lPosition = SDL_JoystickGetHat(mJoystick, mHatIndex);
  

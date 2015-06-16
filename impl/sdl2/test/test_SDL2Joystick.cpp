@@ -6,23 +6,23 @@
 #include "fakeit.hpp"
 #include "test.hpp"
 
-#include "sdljoystick.hpp"
+#include "sdl2joystick.hpp"
 
 using namespace std;
 using namespace fakeit;
 
 using namespace AbstractControls;
-using namespace AbstractControls::SDL;
+using namespace AbstractControls::SDL2;
 
-struct SDLJoystickTest : tpunit::TestFixture {
-  SDLJoystickTest() :
+struct SDL2JoystickTest : tpunit::TestFixture {
+  SDL2JoystickTest() :
     tpunit::TestFixture(
-      BEFORE(SDLJoystickTest::start_sdl),
-      TEST(SDLJoystickTest::handle_bad_index),
-      AFTER(SDLJoystickTest::stop_sdl)) { }
+      BEFORE(SDL2JoystickTest::start_sdl),
+      TEST(SDL2JoystickTest::handle_bad_index),
+      AFTER(SDL2JoystickTest::stop_sdl)) { }
         
   void handle_bad_index() {
-    ASSERT_THROW(SDLJoystick js(10000), std::runtime_error);
+    ASSERT_THROW(SDL2Joystick js(10000), std::runtime_error);
   }
   
   void start_sdl() {
@@ -32,4 +32,4 @@ struct SDLJoystickTest : tpunit::TestFixture {
   void stop_sdl() {
     SDL_Quit();
   }
-} __SDLJoystickTest;
+} __SDL2JoystickTest;

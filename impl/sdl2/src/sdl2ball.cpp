@@ -1,18 +1,18 @@
-#include "sdlball.hpp"
+#include "sdl2ball.hpp"
 
 #include <stdexcept>
 
 namespace AbstractControls {
-namespace SDL {
+namespace SDL2 {
 
-SDLBall::SDLBall(SDL_Joystick* pJoystick, const uint32_t pBallIndex) {
+SDL2Ball::SDL2Ball(SDL_Joystick* pJoystick, const uint32_t pBallIndex) {
   mJoystick = pJoystick;
   mBallIndex = pBallIndex;
 }
 
-SDLBall::~SDLBall() {}
+SDL2Ball::~SDL2Ball() {}
 
-Vector SDLBall:: getChange() {
+Vector SDL2Ball:: getChange() {
   int32_t lX, lY;
   
   SDL_JoystickUpdate();  

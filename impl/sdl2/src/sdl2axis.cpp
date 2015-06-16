@@ -1,18 +1,18 @@
-#include "sdlaxis.hpp"
+#include "sdl2axis.hpp"
 
 #include <stdexcept>
 
 namespace AbstractControls {
-namespace SDL {
+namespace SDL2 {
 
-SDLAxis::SDLAxis(SDL_Joystick* pJoystick, const uint32_t pAxisIndex) {
+SDL2Axis::SDL2Axis(SDL_Joystick* pJoystick, const uint32_t pAxisIndex) {
   mJoystick = pJoystick;
   mAxisIndex = pAxisIndex;
 }
 
-SDLAxis::~SDLAxis() {}
+SDL2Axis::~SDL2Axis() {}
 
-int16_t SDLAxis::getPosition() {
+int16_t SDL2Axis::getPosition() {
   SDL_JoystickUpdate();
   int16_t lValue = SDL_JoystickGetAxis(mJoystick, mAxisIndex);
   

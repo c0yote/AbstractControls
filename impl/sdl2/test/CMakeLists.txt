@@ -1,6 +1,6 @@
 add_executable (TestSDL
                 test.cpp
-                test_SDLJoystick.cpp)
+                test_SDL2Joystick.cpp)
 
 add_test (NAME SDL COMMAND TestSDL)
 

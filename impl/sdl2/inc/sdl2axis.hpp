@@ -1,17 +1,17 @@
-#ifndef SDLAXIS_HPP_
-#define SDLAXIS_HPP_
+#ifndef SDL2AXIS_HPP_
+#define SDL2AXIS_HPP_
 
 #include <SDL.h>
 
 #include <axis.hpp>
 
 namespace AbstractControls {
-namespace SDL {
+namespace SDL2 {
 
-class SDLAxis : public Axis {
+class SDL2Axis : public Axis {
 public:
-  SDLAxis(SDL_Joystick* joystick, const uint32_t axisIndex);
-  ~SDLAxis();
+  SDL2Axis(SDL_Joystick* joystick, const uint32_t axisIndex);
+  ~SDL2Axis();
   int16_t getPosition();
   
 private:

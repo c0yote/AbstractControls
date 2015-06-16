@@ -2,16 +2,16 @@
 
 #include <SDL.h>
 
-#include "sdljoystick.hpp"
+#include "sdl2joystick.hpp"
 
 using namespace AbstractControls;
-using namespace AbstractControls::SDL;
+using namespace AbstractControls::SDL2;
 
 int main(int argc, char *argv[]) {
   
   SDL_Init(SDL_INIT_JOYSTICK | SDL_INIT_GAMECONTROLLER);
   
-  std::shared_ptr<Joystick> js(new SDLJoystick(0));
+  std::shared_ptr<Joystick> js(new SDL2Joystick(0));
   
   while(true) {
     if (js->getAxisPosition(0) > 20000 or js->getAxisPosition(0) < -20000)

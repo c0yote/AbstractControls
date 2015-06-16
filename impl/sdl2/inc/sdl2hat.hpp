@@ -1,17 +1,17 @@
-#ifndef SDLHAT_HPP_
-#define SDLHAT_HPP_
+#ifndef SDL2HAT_HPP_
+#define SDL2HAT_HPP_
 
 #include <SDL.h>
 
 #include <hat.hpp>
 
 namespace AbstractControls {
-namespace SDL {
+namespace SDL2 {
 
-class SDLHat : public Hat {
+class SDL2Hat : public Hat {
 public:
-  SDLHat(SDL_Joystick* joystick, const uint32_t hatIndex);
-  ~SDLHat();
+  SDL2Hat(SDL_Joystick* joystick, const uint32_t hatIndex);
+  ~SDL2Hat();
   Hat::Position getPosition();
   
 private:
