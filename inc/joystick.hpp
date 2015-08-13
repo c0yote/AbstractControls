@@ -13,25 +13,27 @@ namespace AbstractControls {
 
 class Joystick {
 public:
-  int32_t getAxisCount()    const;
-  int32_t getBallCount()    const;
-  int32_t getButtonCount()  const;
-  int32_t getHatCount()     const;
+  virtual ~Joystick() {}
+
+  virtual int32_t getAxisCount()    const;
+  virtual int32_t getBallCount()    const;
+  virtual int32_t getButtonCount()  const;
+  virtual int32_t getHatCount()     const;
   
-  float         getAxisPosition(uint32_t index) const;
-  Vector        getBallChange(uint32_t index)   const;
-  Hat::Position getHatPosition(uint32_t index)  const;
-  bool          isButtonPressed(uint32_t index) const;
+  virtual float         getAxisPosition(uint32_t index) const;
+  virtual Vector        getBallChange(uint32_t index)   const;
+  virtual Hat::Position getHatPosition(uint32_t index)  const;
+  virtual bool          isButtonPressed(uint32_t index) const;
   
-  std::shared_ptr<Axis>   getAxis(uint32_t index)   const;
-  std::shared_ptr<Ball>   getBall(uint32_t index)   const;
-  std::shared_ptr<Button> getButton(uint32_t index) const;
-  std::shared_ptr<Hat>    getHat(uint32_t index)    const;
+  virtual std::shared_ptr<Axis>   getAxis(uint32_t index)   const;
+  virtual std::shared_ptr<Ball>   getBall(uint32_t index)   const;
+  virtual std::shared_ptr<Button> getButton(uint32_t index) const;
+  virtual std::shared_ptr<Hat>    getHat(uint32_t index)    const;
   
-  std::vector< std::shared_ptr<Axis>>   getAxes()     const;
-  std::vector< std::shared_ptr<Ball>>   getBalls()    const;
-  std::vector< std::shared_ptr<Button>> getButtons()  const;
-  std::vector< std::shared_ptr<Hat>>    getHats()     const;
+  virtual std::vector< std::shared_ptr<Axis>>   getAxes()     const;
+  virtual std::vector< std::shared_ptr<Ball>>   getBalls()    const;
+  virtual std::vector< std::shared_ptr<Button>> getButtons()  const;
+  virtual std::vector< std::shared_ptr<Hat>>    getHats()     const;
 
 protected:
   int32_t mAxisCount   = 0;
